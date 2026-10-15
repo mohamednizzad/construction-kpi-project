@@ -1,0 +1,135 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "b3879e6b013e28eaa969",
+  "position": {
+    "x": 9.2455858747993585,
+    "y": 289.69502407704658,
+    "z": 2001,
+    "height": 531.62118780096307,
+    "width": 862.9213483146068,
+    "tabOrder": 2001
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ConstructionEVM"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "queryRef": "ConstructionEVM.Date",
+              "nativeQueryRef": "Date",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ConstructionEVM"
+                    }
+                  },
+                  "Property": "Total Budget"
+                }
+              },
+              "queryRef": "ConstructionEVM.Total Budget",
+              "nativeQueryRef": "Total Budget"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ConstructionEVM"
+                    }
+                  },
+                  "Property": "Total Actual Cost"
+                }
+              },
+              "queryRef": "ConstructionEVM.Total Actual Cost",
+              "nativeQueryRef": "Total Actual Cost"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "ConstructionEVM"
+                  }
+                },
+                "Property": "Date"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9f9a2993c180f549bf22",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ConstructionEVM"
+              }
+            },
+            "Property": "Total Budget"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a3b013e319186c4c4aa3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ConstructionEVM"
+              }
+            },
+            "Property": "Total Actual Cost"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fbf60b123c7963bbb67c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ConstructionEVM"
+              }
+            },
+            "Property": "Date"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

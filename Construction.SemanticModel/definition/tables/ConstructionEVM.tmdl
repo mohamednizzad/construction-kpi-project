@@ -1,0 +1,101 @@
+table ConstructionEVM
+	lineageTag: 7bc14cf9-4090-4efc-91b2-975d7645f057
+
+	measure 'Total Budget' = SUM(ConstructionEVM[Budget])
+		formatString: 0
+		lineageTag: 1cf91d3c-372a-4ac4-8f0a-1d39ed2e70ea
+
+	measure 'Total Actual Cost' = SUM(ConstructionEVM[Actual Cost])
+		formatString: 0
+		lineageTag: 04f5220b-1402-4ce4-9f72-3484e688abfd
+
+	measure 'Budget Variance' = [Total Actual Cost] - [Total Budget]
+		formatString: 0
+		lineageTag: b660634e-6fa0-4c7c-8e76-d3e2fb66ebd9
+
+	measure 'Budget Variance %' = DIVIDE([Budget Variance],[Total Budget])
+		formatString: 0.00
+		lineageTag: be8585c1-cbd3-4832-a8af-6710d6933da2
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 16c5e9cb-0ea8-48ec-aee9-a80ae3974a3c
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 271e1a1b-d7b6-4175-803f-77ad4ebff032
+			defaultHierarchy: LocalDateTable_2fb3ec7f-3b00-4e4f-a85a-bcfb2ebecd6b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Project
+		dataType: string
+		lineageTag: dcce6512-403b-4bcf-a8eb-8ea45a64ce81
+		summarizeBy: none
+		sourceColumn: Project
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phase
+		dataType: string
+		lineageTag: 47cb170a-c25b-4aa3-ac16-e24f5f3e3c9d
+		summarizeBy: none
+		sourceColumn: Phase
+
+		annotation SummarizationSetBy = Automatic
+
+	column Budget
+		dataType: int64
+		formatString: 0
+		lineageTag: 09cec88e-d928-4243-8046-a6444f956576
+		summarizeBy: sum
+		sourceColumn: Budget
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planned Value'
+		dataType: int64
+		formatString: 0
+		lineageTag: 909181bc-b7a5-4cf5-9a31-eba247dd492c
+		summarizeBy: sum
+		sourceColumn: Planned Value
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Earned Value'
+		dataType: int64
+		formatString: 0
+		lineageTag: f64605c9-3e32-4f7d-915d-fb98af8c1ffe
+		summarizeBy: sum
+		sourceColumn: Earned Value
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Actual Cost'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3fcfd67a-e2a6-4bec-a219-1b50b21e34e8
+		summarizeBy: sum
+		sourceColumn: Actual Cost
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ConstructionEVM = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Mohamed Nizzad\Desktop\Power BI, Git & Github\Construction_EVM.csv"),[Delimiter=",", Columns=7, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type date}, {"Project", type text}, {"Phase", type text}, {"Budget", Int64.Type}, {"Planned Value", Int64.Type}, {"Earned Value", Int64.Type}, {"Actual Cost", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

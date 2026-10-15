@@ -1,0 +1,5 @@
+relationship 271e1a1b-d7b6-4175-803f-77ad4ebff032
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ConstructionEVM.Date
+	toColumn: LocalDateTable_2fb3ec7f-3b00-4e4f-a85a-bcfb2ebecd6b.Date
+
