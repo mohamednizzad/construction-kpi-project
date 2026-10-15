@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "e358ea922a5146409118",
   "position": {
-    "x": 1009.3097913322633,
-    "y": 308.1861958266453,
-    "z": 2002,
-    "height": 496.17977528089892,
-    "width": 862.9213483146068,
-    "tabOrder": 2002
+    "x": 1322.1187800963082,
+    "y": 490.016051364366,
+    "z": 4000,
+    "height": 151.01123595505618,
+    "width": 597.88121990369189,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "slicer",
@@ -112,49 +112,7 @@
       ],
       "general": [
         {
-          "properties": {
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "c",
-                    "Entity": "ConstructionEVM",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "In": {
-                        "Expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "c"
-                                }
-                              },
-                              "Property": "Project"
-                            }
-                          }
-                        ],
-                        "Values": [
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'Shopping Mall'"
-                              }
-                            }
-                          ]
-                        ]
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          }
+          "properties": {}
         }
       ]
     },
@@ -163,7 +121,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "a2f0f15fa3f1ca840298",
+        "name": "1652f600aaf8466eb773",
         "field": {
           "Column": {
             "Expression": {

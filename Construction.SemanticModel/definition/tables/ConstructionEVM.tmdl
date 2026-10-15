@@ -17,6 +17,15 @@ table ConstructionEVM
 		formatString: 0.00
 		lineageTag: be8585c1-cbd3-4832-a8af-6710d6933da2
 
+	measure 'Total Earned Value' = SUM(ConstructionEVM[Earned Value])
+		formatString: 0
+		lineageTag: 6ce0c55b-1624-43de-98c3-c30fa194b200
+
+	measure 'Cost Performance Index' = DIVIDE(ConstructionEVM[Total Earned Value],ConstructionEVM[Total Actual Cost])
+		lineageTag: ab90119c-bb52-4d3c-b67f-f45ad12f8cb0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column Date
 		dataType: dateTime
 		formatString: Long Date

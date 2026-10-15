@@ -1,0 +1,126 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "1a50645d746e57b68745",
+  "position": {
+    "x": 1322.1187800963082,
+    "y": 662.60032102728735,
+    "z": 4001,
+    "height": 417.59229534510433,
+    "width": 597.88121990369189,
+    "tabOrder": 4001
+  },
+  "visual": {
+    "visualType": "kpi",
+    "query": {
+      "queryState": {
+        "Indicator": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ConstructionEVM"
+                    }
+                  },
+                  "Property": "Cost Performance Index"
+                }
+              },
+              "queryRef": "ConstructionEVM.Cost Performance Index",
+              "nativeQueryRef": "Cost Performance Index"
+            }
+          ]
+        },
+        "TrendLine": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ConstructionEVM"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "queryRef": "ConstructionEVM.Date",
+              "nativeQueryRef": "Date"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3207609e5be9f60bb30b",
+        "field": {
+          "Arithmetic": {
+            "Left": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "ConstructionEVM"
+                  }
+                },
+                "Property": "Cost Performance Index"
+              }
+            },
+            "Right": {
+              "ScopedEval": {
+                "Expression": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "ConstructionEVM"
+                      }
+                    },
+                    "Property": "Cost Performance Index"
+                  }
+                },
+                "Scope": []
+              }
+            },
+            "Operator": 3
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "4a3619a2255f87ca6f62",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ConstructionEVM"
+              }
+            },
+            "Property": "Cost Performance Index"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "208e735df77952f44cfb",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ConstructionEVM"
+              }
+            },
+            "Property": "Date"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}
