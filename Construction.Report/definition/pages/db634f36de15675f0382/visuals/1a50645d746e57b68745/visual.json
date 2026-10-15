@@ -23,11 +23,11 @@
                       "Entity": "ConstructionEVM"
                     }
                   },
-                  "Property": "Cost Performance Index"
+                  "Property": "Cost Performance Index 1"
                 }
               },
-              "queryRef": "ConstructionEVM.Cost Performance Index",
-              "nativeQueryRef": "Cost Performance Index"
+              "queryRef": "ConstructionEVM.Cost Performance Index 1",
+              "nativeQueryRef": "Cost Performance Index 1"
             }
           ]
         },
@@ -94,20 +94,6 @@
         "howCreated": "User"
       },
       {
-        "name": "4a3619a2255f87ca6f62",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "ConstructionEVM"
-              }
-            },
-            "Property": "Cost Performance Index"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
         "name": "208e735df77952f44cfb",
         "field": {
           "Column": {
@@ -120,6 +106,20 @@
           }
         },
         "type": "Categorical"
+      },
+      {
+        "name": "c0dd330f4c9b8e91407e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ConstructionEVM"
+              }
+            },
+            "Property": "Cost Performance Index 1"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

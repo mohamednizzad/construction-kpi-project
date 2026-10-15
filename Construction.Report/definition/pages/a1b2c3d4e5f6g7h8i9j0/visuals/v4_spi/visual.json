@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "v4_spi",
+  "position": {
+    "x": 1020,
+    "y": 0,
+    "z": 3,
+    "height": 200,
+    "width": 320,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ConstructionEVM"
+                    }
+                  },
+                  "Property": "Schedule Performance Index (SPI)"
+                }
+              },
+              "queryRef": "ConstructionEVM.Schedule Performance Index (SPI)",
+              "nativeQueryRef": "SPI",
+              "format": "0.00"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "v3_cpi",
+  "position": {
+    "x": 680,
+    "y": 0,
+    "z": 2,
+    "height": 200,
+    "width": 320,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ConstructionEVM"
+                    }
+                  },
+                  "Property": "Cost Performance Index"
+                }
+              },
+              "queryRef": "ConstructionEVM.Cost Performance Index",
+              "nativeQueryRef": "CPI",
+              "format": "0.00"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

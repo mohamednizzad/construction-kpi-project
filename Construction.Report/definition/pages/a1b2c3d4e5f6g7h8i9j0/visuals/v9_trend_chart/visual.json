@@ -1,0 +1,102 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "v9_trend_chart",
+  "position": {
+    "x": 0,
+    "y": 440,
+    "z": 8,
+    "height": 420,
+    "width": 1440,
+    "tabOrder": 8
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ConstructionEVM"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "queryRef": "ConstructionEVM.Date",
+              "nativeQueryRef": "Date",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ConstructionEVM"
+                    }
+                  },
+                  "Property": "Total Planned Value"
+                }
+              },
+              "queryRef": "ConstructionEVM.Total Planned Value",
+              "nativeQueryRef": "Planned Value"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ConstructionEVM"
+                    }
+                  },
+                  "Property": "Total Earned Value"
+                }
+              },
+              "queryRef": "ConstructionEVM.Total Earned Value",
+              "nativeQueryRef": "Earned Value"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ConstructionEVM"
+                    }
+                  },
+                  "Property": "Total Actual Cost"
+                }
+              },
+              "queryRef": "ConstructionEVM.Total Actual Cost",
+              "nativeQueryRef": "Actual Cost"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "ConstructionEVM"
+                  }
+                },
+                "Property": "Date"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

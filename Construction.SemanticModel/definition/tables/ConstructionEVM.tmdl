@@ -26,6 +26,54 @@ table ConstructionEVM
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Total Planned Value' = SUM(ConstructionEVM[Planned Value])
+		formatString: 0
+		lineageTag: 8f3e9d2c-4b5f-4e8a-9c3d-1d2e3f4a5b6c
+
+	measure 'Schedule Variance (SV)' = [Total Earned Value] - [Total Planned Value]
+		formatString: 0
+		lineageTag: 9a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+
+	measure 'Schedule Performance Index (SPI)' = DIVIDE([Total Earned Value],[Total Planned Value])
+		lineageTag: 1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cost Variance (CV)' = [Total Earned Value] - [Total Actual Cost]
+		formatString: 0
+		lineageTag: 2c3d4e5f-6a7b-8c9d-0e1f-2a3b4c5d6e7f
+
+	measure 'Estimate at Completion (EAC)' = 
+		VAR CPI = [Cost Performance Index]
+		RETURN
+		IF(CPI > 0, DIVIDE([Total Budget], CPI), BLANK())
+		formatString: 0
+		lineageTag: 3d4e5f6a-7b8c-9d0e-1f2a-3b4c5d6e7f8a
+
+	measure 'Estimate to Complete (ETC)' = [Estimate at Completion (EAC)] - [Total Actual Cost]
+		formatString: 0
+		lineageTag: 4e5f6a7b-8c9d-0e1f-2a3b-4c5d6e7f8a9b
+
+	measure 'Variance at Completion (VAC)' = [Total Budget] - [Estimate at Completion (EAC)]
+		formatString: 0
+		lineageTag: 5f6a7b8c-9d0e-1f2a-3b4c-5d6e7f8a9b0c
+
+	measure 'Percent Complete (%)' = DIVIDE([Total Earned Value],[Total Budget])
+		formatString: 0.00%
+		lineageTag: 6a7b8c9d-0e1f-2a3b-4c5d-6e7f8a9b0c1d
+
+	measure 'CPI Status' = 
+		VAR CPI = [Cost Performance Index]
+		RETURN
+		IF(CPI >= 1, "On/Under Budget", "Over Budget")
+		lineageTag: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+
+	measure 'SPI Status' = 
+		VAR SPI = [Schedule Performance Index (SPI)]
+		RETURN
+		IF(SPI >= 1, "On/Ahead Schedule", "Behind Schedule")
+		lineageTag: 8c9d0e1f-2a3b-4c5d-6e7f-8a9b0c1d2e3f
+
 	column Date
 		dataType: dateTime
 		formatString: Long Date

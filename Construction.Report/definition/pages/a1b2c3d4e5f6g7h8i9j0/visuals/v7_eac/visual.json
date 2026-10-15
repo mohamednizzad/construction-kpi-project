@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "v7_eac",
+  "position": {
+    "x": 0,
+    "y": 220,
+    "z": 6,
+    "height": 200,
+    "width": 480,
+    "tabOrder": 6
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ConstructionEVM"
+                    }
+                  },
+                  "Property": "Estimate at Completion (EAC)"
+                }
+              },
+              "queryRef": "ConstructionEVM.Estimate at Completion (EAC)",
+              "nativeQueryRef": "EAC",
+              "format": "#,0"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
